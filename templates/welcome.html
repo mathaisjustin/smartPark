@@ -11,12 +11,11 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>  
-
+    <!-- navbar starts here -->
       {% include "navbar.html" %}
-        
-        {% comment %} Welcome to the home page {{e}}
-        <div>   
-        <button type="button" onClick="location.href='{% url 'log' %}'">Logout</button>
-        </div> {% endcomment %}
+    <!-- navbar ends here -->
+    <!-- footer starts here -->
+    {% include "footer.html" %}
+    <!-- footer ends here --> 
     </body>
 </html>
