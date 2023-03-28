@@ -27,6 +27,8 @@ urlpatterns = [
     re_path(r'^logout/', views.logout, name="log"),
     re_path(r'^notification/', views.notify, name="notify"),
     re_path(r'^home/', views.home, name="home"),
+    re_path(r'^userdetails/', views.userdetails),
+    re_path(r'^postuserdetails/', views.postuserdetails),
     re_path(r'^profile/', views.profile, name="profile"),
     re_path(r'^postprofile/', views.postprofile, name="postprofile"),
     re_path(r'^feedback/', views.feedback, name="feedback"),
