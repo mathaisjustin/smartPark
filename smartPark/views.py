@@ -24,6 +24,7 @@ def signIn(request):
 
 
 def postsign(request):
+    global email
     email = request.POST.get('email')
     passw = request.POST.get('password')
     try:
@@ -34,7 +35,8 @@ def postsign(request):
     print(user['idToken'])
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
-    return render(request, "welcome.html", {"e": email})
+    # return render(request, "welcome.html")
+    return render(request, "profile.html", {"e": email})
 
 
 def logout(request):
@@ -58,6 +60,16 @@ def feedback(request):
     return render(request, "feedback.html")
 
 
+def profile(request):
+    idtoken = request.session['uid']
+    a = authe.get_account_info(idtoken)
+    a = a['users']
+    a = a[0]
+    a = a['email']
+
+    return render(request, "profile.html", {"e": a})
+
+
 def postsignup(request):
     name = request.POST.get('name')
     # username = request.POST.get('username')
@@ -71,3 +83,38 @@ def postsignup(request):
     except:
         return render(request, "signUp.html")
     return render(request, "signIn.html")
+
+
+def postprofile(request):
+    import time
+    from datetime import datetime, timezone
+    import pytz
+
+    tz = pytz.timezone('Asia/Kolkata')
+    time_now = datetime.now(timezone.utc).astimezone(tz)
+    millis = int(time.mktime(time_now.timetuple()))
+    # print("mili"+str(millis))
+
+    state = request.POST.get('state')
+    fname = request.POST.get('fname')
+    lname = request.POST.get('lname')
+    bio = request.POST.get('bio')
+    print(str(state), str(fname), str(lname), str(bio))
+
+    idtoken = request.session['uid']
+    a = authe.get_account_info(idtoken)
+    a = a['users']
+    a = a[0]
+    user = a['localId']
+    print("users "+str(user))
+    # print("info "+str(a))
+    data = {
+        "state": state,
+        "fname": fname,
+        "lname": lname,
+        "bio": bio
+    }
+    print("data = "+str(data))
+    # database.child("users").child(user).child("report").child("milis").set(data)
+    database.child("users").update(data, user['localId']['report'])
+    return render(request, "welcome.html")

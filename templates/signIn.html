@@ -18,9 +18,7 @@
     </head>
     <body class="bg-gray-100">
         <!-- navbar begins here -->
-        <div class="navbar bg-base-100">
-            <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
-          </div>
+        {% include "components/navbarSign.html" %}
         <!-- navbar ends here -->
         <!-- login starts here -->
         <div class="flex justify-center items-center h-screen">
@@ -47,7 +45,7 @@
         </div>
         <!-- login ends here -->
         <!-- footer starts here -->
-        {% include "footer.html" %}
+        {% include "components/footer.html" %}
         <!-- footer ends here -->
     </body>
 </html>
