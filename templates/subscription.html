@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+{% include "components/navbarSign.html" %}
+
+<div class="container mx-auto py-12">
+    <div class="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-gray-100 text-gray-700 text-lg font-semibold py-3 px-6 uppercase tracking-wide">
+            Subscription Payment Monthly
+        </div>
+
+        <div class="px-6 py-4">
+            <div class="text-gray-700 font-bold mb-2">
+                Subscription Details
+            </div>
+        </div>
+
+        <div class="flex justify-between py-2 px-5" >
+            <div class="text-gray-600">
+                Subscription Plan:
+            </div>
+            <div class="text-gray-800">
+                Monthly Plan
+            </div>
+        </div>
+
+        <div class="flex justify-between py-2 px-5">
+            <div class="text-gray-600">
+                Subscription Price:
+            </div>
+            <div class="text-gray-800">
+                &#x20B9 299/month
+            </div>
+        </div>
+
+        <div class="flex justify-between py-2 px-5">
+            <div class="text-gray-600">
+                Subscription Period:
+            </div>
+            <div class="text-gray-800">
+                1 Month
+            </div>
+        </div>
+
+        <hr class="my-4">   
+
+        <div class="text-gray-700 font-bold mb-2 px-5">
+            Payment Information
+        </div>
+
+        <form action="/postsubscription/" method="post">
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-10">
+                    <div>
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">Enter your Name</label>
+                        <input class="border rounded-lg py-2 px-3 w-full" type="text" name="name" id="name"
+                        required>
+                      </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-10">
+                    <div>
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">Enter the Amount</label>
+                        <input class="border rounded-lg py-2 px-3 w-full" type="text" value="299" placeholder="299" name="amount" id="amount" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-10">
+                    <div>
+                        <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" id="rzp-button1">Pay with RazorPay</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

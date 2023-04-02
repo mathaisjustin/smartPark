@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import pyrebase
 from django.contrib import auth
+import razorpay
+from django.conf import settings
 
 config = {
     'apiKey': "AIzaSyBl-5DPtTBMXwC6eOxDP1K19wLSANBhkeg",
@@ -114,12 +116,6 @@ def profile(request):
         zip = database.child("users").child(a).child(
             'userdetails').child(i).child('zip').get().val()
 
-    # print(fname, lname, uname, pno, add, city, state, zip, e)
-
-    # print(info)
-
-    # fname = database.child("users").child(a).child('userdetails').get().val()
-    # print({"fname": fname})
     return render(request, "profile.html", {"fname": fname, "lname": lname, "uname": uname, "pno": pno, "add": add, "city": city, "state": state, "zip": zip, "e": e})
 
 
@@ -137,51 +133,12 @@ def postsignup(request):
 
 
 def postprofile(request):
-    import time
-    from datetime import datetime, timezone
-    import pytz
-
-    tz = pytz.timezone('Asia/Kolkata')
-    time_now = datetime.now(timezone.utc).astimezone(tz)
-    millis = int(time.mktime(time_now.timetuple()))
-    # print("mili"+str(millis))
-
-    state = request.POST.get('state')
-    fname = request.POST.get('fname')
-    lname = request.POST.get('lname')
-    bio = request.POST.get('bio')
-    # print(str(state), str(fname), str(lname), str(bio))
-
-    # work = request.POST.get('work')
-    # progress = request.POST.get('progress')
     try:
         idtoken = request.session['uid']
         a = authe.get_account_info(idtoken)
         a = a['users']
         a = a[0]
         a = a['localId']
-        print(str(a))
-        # print("users "+str(user))
-        print("info "+str(a))
-        data = {
-            "state": state,
-            "fname": fname,
-            "lname": lname,
-            "bio": bio
-        }
-
-        # data = {
-        #     "work": work,
-        #     "progress": progress
-        # }
-
-        database.child('users').child(a).child(
-            'profile').child(millis).set(data, idtoken)
-
-        # print("data = "+str(data))
-        # database.child('users').child(a).child('report').child('milis').set(data)
-        # database.child('users').child(a).child('report').child('milis').set(data)
-        # database.child("users").update(data, user['localId']['report'])
         return render(request, "welcome.html")
     except KeyError:
         message = "Oops! User Logged Out. Please Sign In Again."
@@ -232,4 +189,16 @@ def postuserdetails(request):
     database.child('users').child(a).child(
         'userdetails').child(millis).set(data, idtoken)
 
-    return render(request, "welcome.html")
+    return render(request, "subscription.html")
+
+
+def subscription(request):
+    return render(request, "subscription.html")
+
+
+def postsubscription(request):
+    name = request.POST.get('name')
+
+
+def successpayment(request):
+    return render(request, "successpayment.html")

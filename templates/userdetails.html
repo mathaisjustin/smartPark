@@ -14,31 +14,31 @@
 
   <div class="container mx-auto p-6">
     <div class="bg-white rounded-lg shadow-lg p-6">
-      <h1 class="text-2xl font-bold mb-6">User Details</h1>
+      <h1 class="block uppercase tracking-wide text-gray-700 font-bold mb-6 text-2xl">User Details</h1>
       <form action="/postuserdetails/" method="post" class="grid grid-cols-2 gap-6">
         {% csrf_token %}
         <div>
-          <label class="block font-medium mb-2" for="first-name">First Name</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">First Name</label>
           <input class="border rounded-lg py-2 px-3 w-full" type="text" name="fname" id="fname" required>
         </div>
         <div>
-          <label class="block font-medium mb-2" for="last-name">Last Name</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="last-name">Last Name</label>
           <input class="border rounded-lg py-2 px-3 w-full" type="text" name="lname" id="lname" required>
         </div>
         <div>
-          <label class="block font-medium mb-2" for="email">Username</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">Username</label>
           <input class="border rounded-lg py-2 px-3 w-full" type="text" name="uname" id="uname" required>
         </div>
         <div>
-          <label class="block font-medium mb-2" for="phone">Phone Number</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">Phone Number</label>
           <input class="border rounded-lg py-2 px-3 w-full" type="tel" name="phone" id="phone" required>
         </div>
         <div class="col-span-2">
-          <label class="block font-medium mb-2" for="address">Address</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address">Address</label>
           <input class="border rounded-lg py-2 px-3 w-full" type="text" name="address" id="address" required>
         </div>
         <div>
-          <label class="block font-medium mb-2" for="city">City</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="city">City</label>
           <input class="border rounded-lg py-2 px-3 w-full" type="text" name="city" id="city" required>
         </div>
         <div class='w-full md:w-full px-3 mb-6'>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div>
-          <label class="block font-medium mb-2" for="zip">Zip Code</label>
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="zip">Zip Code</label>
           <input class="border rounded-lg py-2 px-3 w-full" type="text" name="zip" id="zip" required>
         </div>
         <div class="col-span-2">

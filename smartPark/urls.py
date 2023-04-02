@@ -34,4 +34,7 @@ urlpatterns = [
     re_path(r'^feedback/', views.feedback, name="feedback"),
     re_path(r'^signup/', views.signUp, name="signup"),
     re_path(r'^postsignup/', views.postsignup, name="postsignup"),
+    re_path(r'^subscription/', views.subscription),
+    re_path(r'^postsubscription/', views.subscription, name="postsubscription"),
+    re_path(r'^paymentsuccess/', views.successpayment),
 ]

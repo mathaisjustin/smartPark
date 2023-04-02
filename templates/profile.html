@@ -16,7 +16,7 @@
         <div class="container mx-auto">
             <div class="inputs w-full max-w-2xl p-6 mx-auto">
                 <h2 class="text-2xl text-gray-900">Account Setting</h2>
-                <form action="/postprofile/" method="post" class="mt-6 border-t border-gray-400 pt-4">
+                <form action="" method="post" class="mt-6 border-t border-gray-400 pt-4">
                     {% csrf_token %}
                     <div class='flex flex-wrap -mx-3 mb-6'>
                         <div class='w-full md:w-full px-3 mb-6'>
@@ -33,13 +33,15 @@
                                 class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md ">change
                                 your password</button>
                         </div>
-                        {% comment %} <div class='w-full md:w-full px-3 mb-6 '>
+                        <div class='w-full md:w-full px-3 mb-6 '>
                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Upload
                                 your profile picture</label>
                             <input type="file"
                                 class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md "
-                                name="profile_pic" />
-                        </div> {% endcomment %}
+                                name="file[]" id="files" />
+                            <input type="hidden" name="url" id="url" />
+                            <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit" onClick="uploadimage()" >Upload</button>
+                        </div>
                         <div class='w-full md:w-full px-3 mb-6'>
                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>                        state</label>
                             <div class="flex-shrink w-full inline-block relative">
@@ -118,5 +120,34 @@
         </div>
     </div>
 </body>
+<script>src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js"</script>
+<script>
+    var config ={
+        apiKey: 'AIzaSyBl-5DPtTBMXwC6eOxDP1K19wLSANBhkeg',
+        authDomain: 'smartpark-380e6.firebaseapp.com',
+        databaseURL: 'https://smartpark-380e6-default-rtdb.firebaseio.com/',
+        storageBucket: 'smartpark-380e6.appspot.com',
+        messagingSenderId: '986213369518'
+    };
+    firebase.initializeApp(config);
 
+    function uploadimage(){
+        var storage = firebase.storage();
+
+        var file = docment.getElementById('files').files[0];
+        var storageRef = storage.ref();
+        var thisref = storageRef.child(file.name).put(file);
+        thisref.on('state_changed', function(snapshot)){
+            console.log('File Uploaded Successfully');
+        },
+        funtion(error){
+            
+        },
+        function(){
+            var downloadURL = thisref.snapshot.downloadURL;
+            console.log("got URL");
+            alert("File Uploaded Successfully");
+        }
+    }
+</script>
 </html>
