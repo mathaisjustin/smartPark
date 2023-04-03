@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import pyrebase
 from django.contrib import auth
 import razorpay
@@ -45,7 +45,7 @@ def postsign(request):
     timestaps = database.child("users").child(
         a).child('userdetails').shallow().get().val()
     if timestaps is None:
-        return render(request, "userdetails.html")
+        return redirect("/payments/")
     else:
         return render(request, "welcome.html")
 
@@ -189,7 +189,7 @@ def postuserdetails(request):
     database.child('users').child(a).child(
         'userdetails').child(millis).set(data, idtoken)
 
-    return render(request, "subscription.html")
+    return render(request, "welcome.html")
 
 
 def subscription(request):

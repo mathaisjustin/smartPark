@@ -17,24 +17,26 @@ from django.contrib import admin
 from django.urls import path
 
 from . import views
-from django.urls import include, re_path
+from django.urls import path, include
 # from django.conf.urls import url
 
 urlpatterns = [
-    # re_path(r'admin/', admin.site.urls),
-    re_path(r'^$', views.signIn, name="index"),
-    re_path(r'^postsign/', views.postsign),
-    re_path(r'^logout/', views.logout, name="log"),
-    re_path(r'^notification/', views.notify, name="notify"),
-    re_path(r'^home/', views.home, name="home"),
-    re_path(r'^userdetails/', views.userdetails),
-    re_path(r'^postuserdetails/', views.postuserdetails),
-    re_path(r'^profile/', views.profile, name="profile"),
-    re_path(r'^postprofile/', views.postprofile, name="postprofile"),
-    re_path(r'^feedback/', views.feedback, name="feedback"),
-    re_path(r'^signup/', views.signUp, name="signup"),
-    re_path(r'^postsignup/', views.postsignup, name="postsignup"),
-    re_path(r'^subscription/', views.subscription),
-    re_path(r'^postsubscription/', views.subscription, name="postsubscription"),
-    re_path(r'^paymentsuccess/', views.successpayment),
+    path('admin/', admin.site.urls),
+    path('payments/', include('payment.urls')),
+    # path('payments/success/', include('payment.urls')),
+    path('', views.signIn, name="index"),
+    path('logout/', views.logout, name="log"),
+    path('postsign/', views.postsign),
+    path('notification/', views.notify, name="notify"),
+    path('home/', views.home, name="home"),
+    path('userdetails/', views.userdetails),
+    path('postuserdetails/', views.postuserdetails),
+    path('profile/', views.profile, name="profile"),
+    path('postprofile/', views.postprofile, name="postprofile"),
+    path('feedback/', views.feedback, name="feedback"),
+    path('signup/', views.signUp, name="signup"),
+    path('postsignup/', views.postsignup, name="postsignup"),
+    path('subscription/', views.subscription),
+    path('postsubscription/', views.subscription, name="postsubscription"),
+    path('paymentsuccess/', views.successpayment),
 ]
