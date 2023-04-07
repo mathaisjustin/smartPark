@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Tailwind Profile Settings</title>
+    <title>Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -40,7 +40,7 @@
                                 class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md "
                                 name="file[]" id="files" />
                             <input type="hidden" name="url" id="url" />
-                            <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit" onClick="uploadimage()" >Upload</button>
+                            <button type="button" onClick="uploadImage()">Upload</button>
                         </div>
                         <div class='w-full md:w-full px-3 mb-6'>
                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>                        state</label>
@@ -119,35 +119,38 @@
             </div>
         </div>
     </div>
-</body>
-<script>src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js"</script>
-<script>
-    var config ={
-        apiKey: 'AIzaSyBl-5DPtTBMXwC6eOxDP1K19wLSANBhkeg',
-        authDomain: 'smartpark-380e6.firebaseapp.com',
-        databaseURL: 'https://smartpark-380e6-default-rtdb.firebaseio.com/',
-        storageBucket: 'smartpark-380e6.appspot.com',
-        messagingSenderId: '986213369518'
-    };
-    firebase.initializeApp(config);
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase.js"></script>
+    <script>
+        var config ={
+            apiKey: 'AIzaSyBl-5DPtTBMXwC6eOxDP1K19wLSANBhkeg',
+            authDomain: 'smartpark-380e6.firebaseapp.com',
+            databaseURL: 'https://smartpark-380e6-default-rtdb.firebaseio.com/',
+            storageBucket: 'smartpark-380e6.appspot.com',
+            messagingSenderId: '986213369518'
+        };
+        firebase.initializeApp(config);
 
-    function uploadimage(){
-        var storage = firebase.storage();
+        function uploadImage(){
+            console.log("uploading")
+            var storage = firebase.storage();
 
-        var file = docment.getElementById('files').files[0];
-        var storageRef = storage.ref();
-        var thisref = storageRef.child(file.name).put(file);
-        thisref.on('state_changed', function(snapshot)){
-            console.log('File Uploaded Successfully');
-        },
-        funtion(error){
+            var file = document.getElementById('files').files[0];
+            print(file)
+            var storageRef = storage.ref();
             
-        },
-        function(){
-            var downloadURL = thisref.snapshot.downloadURL;
-            console.log("got URL");
-            alert("File Uploaded Successfully");
+            var thisref = storageRef.child(file.name).put(file);
+            thisref.on('state_changed', function(snapshot){
+                console.log('File Uploaded Successfully');
+            },
+            funtion(error){
+                console.log("error");
+            },
+            function(){
+                var downloadURL = thisref.snapshot.downloadURL;
+                console.log("got URL");
+                alert("File Uploaded Successfully");
+            }); 
         }
-    }
-</script>
+    </script>
+</body>
 </html>

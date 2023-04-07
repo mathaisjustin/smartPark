@@ -1,60 +1,70 @@
-{%  if msg %}
+<!-- to check of the msg is rendered  -->
+{% if msg %}
 <script>
+    // alert the message from the backend
     alert("{{msg}}");
 </script>
 {% endif %}
 
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <title>SignIn </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!-- Navbar starts here -->
-        {% include "components/navbarSign.html" %}
-        <!-- navbar ends here -->
-        <!-- Signup starts here -->
-        <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
-                <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-                    <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical
-                            authentic, poko scenester</h1>
-                    <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify
-                            hammock starladder roathse. Craies vegan tousled etsy austin.</p>
-                </div>
-                <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-                    <form action="/postsignup/" method="post">
-                        {% csrf_token %}
-                        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
-                        <div class="relative mb-4">
-                            <label for="full-name" class="leading-7 text-sm text-gray-600">Email</label>
-                            <input type="email" id="email" name="email"
-                                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                        </div>
-                        <div class="relative mb-4">
-                            <label for="Password" class="leading-7 text-sm text-gray-600">Password</label>
-                            <input type="password" id="pass" name="pass"
-                                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                        </div>
-                        <input class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" value="SignUp" type="submit"></input>
-                        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SignIn </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!-- Navbar starts here -->
+    {% include "components/navbarSign.html" %}
+    <!-- navbar ends here -->
+    <!-- Signup starts here -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+            <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+                <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical
+                    authentic, poko scenester</h1>
+                <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify
+                    hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+            </div>
+            <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                <form action="/postsignup/" method="post">
+                    <!-- csrf token -->
+                    {% csrf_token %}
+                    <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
+                    <div class="relative mb-4">
+                        <label for="full-name" class="leading-7 text-sm text-gray-600">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="Password" class="leading-7 text-sm text-gray-600">Password</label>
+                        <input type="password" id="pass" name="pass"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    </div>
+                    <input
+                        class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                        value="SignUp" type="submit"></input>
+                    <!-- button to redirect to index.html template -->
+                    <button
+                        class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
                         type="button" onClick="location.href='{% url 'index' %}'">Sign in
                     </button>
-                        <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
-                    </form>
-                </div>
+                    <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
+                </form>
             </div>
-        </section>
-        <!-- Signup ends here -->
-        <!-- footer starts here -->
-        {% include "components/footer.html" %}
-        <!-- footer ends here -->
-    </body>
+        </div>
+    </section>
+    <!-- Signup ends here -->
+    <!-- footer starts here -->
+    {% include "components/footer.html" %}
+    <!-- footer ends here -->
+</body>
+
 </html>
