@@ -6,6 +6,7 @@
 
 <!DOCTYPE html>
 <html lang = "en">
+    {%load static%}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +17,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
-    <body class="bg-gray-100">
+    <body style="background-image: url('{%static 'img/signin/7971.jpg' %}');">
         <!-- navbar begins here -->
         {% include "components/navbarSign.html" %}
         <!-- navbar ends here -->
         <!-- login starts here -->
-        <div class="flex justify-center items-center h-screen">
+        {% comment %} <div class="flex justify-center items-center h-screen">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/postsign/" method="post">
                 {% csrf_token %}
                 <div class="mb-4">
@@ -42,7 +43,40 @@
                     </button>
                 </div>
             </form>
-        </div>
+        </div> {% endcomment %}
+
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+                <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+                    <h1 class="title-font font-medium text-5xl text-[white]">Welcome Back!!</h1>
+                    <p class="leading-relaxed mt-4">One Stop solution for all your Parking Problems</p>
+                </div>
+                <div
+                    class="lg:w-2/6 md:w-1/2 bg-[black] bg-opacity-50  rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+                    <h2 class="text-[white] text-lg font-medium title-font mb-5">Login</h2>
+                    <form action="/postsign/" method="post">
+                        {% csrf_token %}
+                        <div class="relative mb-4">
+                            <label for="email" class="leading-7 text-sm text-[white]">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full bg-white rounded border border-gray-300 focus:border-[red] focus:ring-2 focus:ring-[red] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+    
+                        <div class="relative mb-4">
+                            <label for="full-name" class="leading-7 text-sm text-[white]">Password</label>
+                            <input type="password" id="password" name="password"
+                                class="w-full bg-white rounded border border-[red] focus:border-indigo-500 focus:ring-2 focus:ring-[red] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+    
+                        <input
+                            class="text-white bg-[red] border-0 py-2 px-8 focus:outline-none hover:bg-red-300 rounded text-lg"
+                            type="submit" value="Sign In"></input>
+                        <p class="text-xs text-gray-500 mt-3"> <button type="button" onClick="location.href='{% url 'signup' %}'">New user?
+                                Sign Up</button></a></p>
+                    </form>
+                </div>
+            </div>
+        </section>
         <!-- login ends here -->
         <!-- footer starts here -->
         {% include "components/footer.html" %}

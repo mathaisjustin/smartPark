@@ -23,7 +23,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('payments/', include('payment.urls')),
-    # path('payments/success/', include('payment.urls')),
+    path('feedback/', include('feedback.urls')),
     path('', views.signIn, name="index"),
     path('logout/', views.logout, name="log"),
     path('postsign/', views.postsign),
@@ -33,10 +33,11 @@ urlpatterns = [
     path('postuserdetails/', views.postuserdetails),
     path('profile/', views.profile, name="profile"),
     path('postprofile/', views.postprofile, name="postprofile"),
-    path('feedback/', views.feedback, name="feedback"),
+    # path('feedback/', views.feedback, name="feedback"),
     path('signup/', views.signUp, name="signup"),
     path('postsignup/', views.postsignup, name="postsignup"),
     path('subscription/', views.subscription),
     path('postsubscription/', views.subscription, name="postsubscription"),
     path('paymentsuccess/', views.successpayment),
+    path('terms/', views.terms, name="terms"),
 ]

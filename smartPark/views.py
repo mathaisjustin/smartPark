@@ -122,13 +122,16 @@ def profile(request):
 def postsignup(request):
     email = request.POST.get('email')
     passw = request.POST.get('pass')
+    print(email, passw)
     try:
         user = authe.create_user_with_email_and_password(email, passw)
         uid = user['localId']
+        print(uid)
         data = {"status": "1"}
         database.child("users").child(uid).child("status").set(data)
     except:
-        return render(request, "signUp.html")
+        message = "signup unsucessfull"
+        return render(request, "signUp.html", {"msg": message})
     return render(request, "signIn.html")
 
 
@@ -202,3 +205,7 @@ def postsubscription(request):
 
 def successpayment(request):
     return render(request, "successpayment.html")
+
+
+def terms(request):
+    return render(request, "terms.html")
