@@ -1,3 +1,6 @@
+from django.shortcuts import render
+
+# Create your views here.
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -12,15 +15,13 @@ from django.template.loader import render_to_string
 def home(request):
     if request.method == 'POST':
         name = request.POST.get('name')
-        amount = int(request.POST.get('amount')) * 100
-        print(name)
-        print(amount)
+        email = request.POST.get('email')
         client = razorpay.Client(
             auth=("rzp_test_XHGmRIczlc1NSe", "DFGObQ52tiEM3KP2wPDqDY56"))
         payment = client.order.create(
-            {'amount': amount, 'currency': 'INR', 'payment_capture': '1'})
+            {'amount': '29900', 'currency': 'INR', 'payment_capture': '1'})
         # print(payment)
-        sub = Subscriptions(name=name, amount=amount,
+        sub = Subscriptions(name=name, email=email, amount='29900',
                             payment_id=payment['id'])
         sub.save()
         return render(request, 'payment.html',  {'payment': payment})

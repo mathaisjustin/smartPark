@@ -1,43 +1,56 @@
-"""smartPark URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from . import views
-from django.urls import path, include
 # from django.conf.urls import url
 
 urlpatterns = [
+    # connections to admin app
     path('admin/', admin.site.urls),
+    # connections to payment app
     path('payments/', include('payment.urls')),
+    # connections to feedback app
     path('feedback/', include('feedback.urls')),
+    # connections to profile app
+    # path('profile/', include('Profile.urls')),
+    # path to signin page
     path('', views.signIn, name="index"),
+    # path to logout
     path('logout/', views.logout, name="log"),
+    # path to postsign
     path('postsign/', views.postsign),
+    # path to notification page
     path('notification/', views.notify, name="notify"),
+    # path to home page
     path('home/', views.home, name="home"),
+    # path to userdetails page
     path('userdetails/', views.userdetails),
+    # path to postuserdetails
     path('postuserdetails/', views.postuserdetails),
+    # path to profile page
     path('profile/', views.profile, name="profile"),
+    # path to postprofile
     path('postprofile/', views.postprofile, name="postprofile"),
-    # path('feedback/', views.feedback, name="feedback"),
+    # path to changepass page
+    path('changepass/', views.changepass, name="changepass"),
+    # path to signup page
     path('signup/', views.signUp, name="signup"),
+    # path to postsignup
     path('postsignup/', views.postsignup, name="postsignup"),
+    # path to subscription page
     path('subscription/', views.subscription),
+    # path to postsubscription
     path('postsubscription/', views.subscription, name="postsubscription"),
+    # path to paymentsuccess page
     path('paymentsuccess/', views.successpayment),
+    # path to terms page
     path('terms/', views.terms, name="terms"),
+    # path to park page
+    path('park/', views.park, name="park"),
+    # path to forgotpass page
+    path('forgotpass/', views.forgotpass, name="forgotpass"),
+    # path to postforgotpass
+    path('postforgotpass/', views.postforgotpass, name="postforgotpass"),
+    # path to settings page
+    path('settings/', views.settings, name="settings"),
 ]

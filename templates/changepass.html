@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Password</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- navbar starts here -->
+    {% include "components/navbar.html" %}
+    <!-- navbar ends here -->
+  <div class="flex justify-center items-center h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h1 class="text-2xl font-semibold text-gray-800 mb-6">Change Password</h1>
+      <form class="space-y-4">
+        <div>
+          <label class="block text-gray-700 font-bold mb-2" for="old-password">
+            Old Password
+          </label>
+          <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" name="old-password" id="old-password" required>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-bold mb-2" for="new-password">
+            New Password
+          </label>
+          <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" name="new-password" id="new-password" required>
+        </div>
+        <div>
+          <label class="block text-gray-700 font-bold mb-2" for="confirm-password">
+            Confirm Password
+          </label>
+          <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" name="confirm-password" id="confirm-password" required>
+        </div>
+        <div>
+          <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="submit">Change Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

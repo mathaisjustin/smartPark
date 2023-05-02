@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <!-- Include Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    {% include "components/navbar.html" %}
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-12 gap-6">
+        <!-- Sidebar -->
+        <div class="col-span-3">
+          <nav class="bg-white shadow rounded-lg py-4">
+            <ul>
+              <li class="font-bold text-lg px-4 py-2 border-l-4 border-indigo-600">
+                <a href="#">Profile</a>
+              </li>
+              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
+                <a href="#">Account</a>
+              </li>
+              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
+                <a href="#">Privacy</a>
+              </li>
+              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
+                <a href="#">Notifications</a>
+              </li>
+              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
+                <a href="#">Security</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Main Content -->
+        <div class="col-span-9">
+          <div class="bg-white shadow rounded-lg px-6 py-8">
+            <!-- Submenu -->
+            <nav class="mb-8">
+              <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                  <a href="#" class="text-indigo-600 font-bold">Profile</a>
+                  <span class="mx-2">/</span>
+                </li>
+                <li>
+                  <span class="text-gray-600 font-bold">Change Password</span>
+                </li>
+              </ol>
+            </nav>
+            <!-- Change Password Form -->
+            <form>
+              <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="old-password">
+                  Old Password
+                </label>
+                <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="old-password" type="password" placeholder="Enter your old password">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="new-password">
+                    New Password
+                    </label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="old-password" type="password" placeholder="Enter your old password">
+                </div>
+                <div class="mb-4">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="submit">
+                </div>

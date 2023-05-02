@@ -52,6 +52,15 @@
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full px-10">
                     <div>
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">Enter your Email</label>
+                        <input class="border rounded-lg py-2 px-3 w-full" type="text" name="email" 
+                        required>
+                      </div>
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full px-10">
+                    <div>
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">Enter your Name</label>
                         <input class="border rounded-lg py-2 px-3 w-full" type="text" name="name" 
                         required>
@@ -62,7 +71,7 @@
                 <div class="w-full px-10">
                     <div>
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">Enter the Amount</label>
-                        <input class="border rounded-lg py-2 px-3 w-full" type="number" name="amount" required>
+                        <input class="border rounded-lg py-2 px-3 w-full" type="number" name="amount" value="299" readonly>
                     </div>
                 </div>
             </div>
@@ -86,7 +95,7 @@
     <script
         src="https://checkout.razorpay.com/v1/checkout.js"
         data-key="rzp_test_XHGmRIczlc1NSe" // Enter the Key ID generated from the Dashboard
-        data-amount="{{payment.amount}}" // Amount is in currency subunits. Hence, 29900 refers to 29900 paise
+        data-amount="29900" // Amount is in currency subunits. Hence, 29900 refers to 29900 paise
         data-currency="INR"
         data-order_id="{{payment.id}}" //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         data-buttontext="Pay with Razorpay"
