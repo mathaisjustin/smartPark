@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Profile</title>
+    <title>Park</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -18,7 +18,7 @@
                   {% else %}
                     bg-green-500
                   {% endif %}">
-        <h2 class="text-xl font-medium mb-2">{{ item.slot }}</h2>
+        <h2 class="text-xl font-medium mb-2 text-[white]">{{ item.slot }}</h2>
         <p class="text-gray-700">Location: 123 Main St.</p>
         <p class="text-gray-700">Status: {{ item.status }}</p>
       </div>

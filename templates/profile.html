@@ -16,7 +16,7 @@
         <div class="container mx-auto">
             <div class="inputs w-full max-w-2xl p-6 mx-auto">
                 <h2 class="text-2xl text-gray-900">Account Setting</h2>
-                <form action="" method="post" class="mt-6 border-t border-gray-400 pt-4">
+                <div class="mt-6 border-t border-gray-400 pt-4">
                     {% csrf_token %}
                     <div class='flex flex-wrap -mx-3 mb-6'>
                         <div class='w-full md:w-full px-3 mb-6'>
@@ -100,17 +100,6 @@
                                     class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500'
                                     type='text' id="vno" name="vno" placeholder='{{vno}}' readonly>
                             </div>
-                    </div>
-                </form>
-                <div class="personal w-full border-t border-gray-400 pt-4">
-                    <h2 class="text-2xl text-gray-900">Change Password:</h2>
-                    <br>
-                    <div class='flex flex-wrap -mx-3 mb-6'>
-                        
-                        <div class='w-full md:w-full px-3 mb-6 '>
-                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>password</label>
-                            <button onClick="location.href='{% url 'index' %}'" class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md">change your password</button>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -22,12 +22,15 @@ config = {
     'messagingSenderId': "986213369518",
     'appId': "1:986213369518:web:6170bf0b8ad076e482cf3f",
     'measurementId': "G-LY5T3CR6CN",
-    'databaseURL': "https://smartpark-380e6-default-rtdb.firebaseio.com/"
+    'databaseURL': "https://smartpark-380e6-default-rtdb.firebaseio.com/",
+    'serviceAccount': "./smartpark/firebase-admin-sdk.json"
 }
 
 firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
 database = firebase.database()
+storage = firebase.storage()
+
 
 
 def signIn(request):
