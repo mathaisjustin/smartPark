@@ -1,0 +1,96 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fuel Price</title>
+  <link href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/css/main.ad49aa9b.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    async function fetchData() {
+      const input = document.getElementById('inputValue').value;
+      const url = `https://indian-fuel.p.rapidapi.com/fuel/data/${input}`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '77a8d297b1msha8c50b6309d960cp14cfaajsn62b5c9fa3d48',
+          'X-RapidAPI-Host': 'indian-fuel.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json(); // Parse the response as JSON
+        console.log(result);
+        // Display the result on the page
+        document.getElementById('result').innerHTML = `
+          <div class="bg-gray-200 p-4 rounded-lg">
+            <h2 class="text-lg font-semibold mb-2">Fuel Prices in ${result.city}</h2>
+            <div class="flex justify-between">
+              <div>
+                <h3 class="text-gray-700">Diesel:</h3>
+                <p class="text-gray-900">${result.diesel}</p>
+              </div>
+              <div>
+                <h3 class="text-gray-700">Petrol:</h3>
+                <p class="text-gray-900">${result.petrol}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  </script>
+</head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<body class="bg-black py-8">
+  <div class="container mx-auto px-4">
+    <div class="max-w-md mx-auto bg-[gray] rounded-lg overflow-hidden shadow-md">
+      <div class="p-4">
+        <label for="inputValue" class="text-[white]">Enter the District Name:</label>
+        <div class="flex items-center mt-2">
+          <input type="text" id="inputValue" class="rounded-lg border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <button onclick="fetchData()" class="ml-4 py-2 px-6 bg-[red] text-white rounded-lg hover:bg-red-500 focus:outline-none focus:bg-blue-600">Get Price</button>
+        </div>
+      </div>
+      <div id="result" class="p-4"></div>
+    </div>
+  </div>
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</html>

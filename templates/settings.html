@@ -7,36 +7,14 @@
     <!-- Include Tailwind CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.1/tailwind.min.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-100">
+  <body class="bg-white-100">
     {% include "components/navbar.html" %}
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-12 gap-6">
-        <!-- Sidebar -->
-        <div class="col-span-3">
-          <nav class="bg-white shadow rounded-lg py-4">
-            <ul>
-              <li class="font-bold text-lg px-4 py-2 border-l-4 border-indigo-600">
-                <a href="#">Profile</a>
-              </li>
-              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
-                <a href="#">Account</a>
-              </li>
-              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
-                <a href="#">Privacy</a>
-              </li>
-              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
-                <a href="#">Notifications</a>
-              </li>
-              <li class="font-bold text-lg px-4 py-2 hover:bg-indigo-100">
-                <a href="#">Security</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <!-- Main Content -->
+        
         <div class="col-span-9">
           <div class="bg-white shadow rounded-lg px-6 py-8">
             <!-- Submenu -->
@@ -44,27 +22,71 @@
               <ol class="list-none p-0 inline-flex">
                 <li class="flex items-center">
                   <a href="#" class="text-indigo-600 font-bold">Profile</a>
-                  <span class="mx-2">/</span>
                 </li>
                 <li>
-                  <span class="text-gray-600 font-bold">Change Password</span>
+                  <span class="text-gray-600 font-bold ">/ Change Profile Picture</span>
                 </li>
               </ol>
             </nav>
-            <!-- Change Password Form -->
-            <form>
-              <div class="mb-4">
-                <label class="block text-gray-700 font-bold mb-2" for="old-password">
-                  Old Password
-                </label>
-                <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="old-password" type="password" placeholder="Enter your old password">
-                </div>
+            <!-- Profile Content -->
+            <div class="bg-white shadow rounded-lg px-6 py-8">
+              <form method="POST" action="/postprofilepic/">
+                {% csrf_token %}
                 <div class="mb-4">
-                    <label class="block text-gray-700 font-bold mb-2" for="new-password">
-                    New Password
-                    </label>
-                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="old-password" type="password" placeholder="Enter your old password">
+                  <div class="mb-4">
+                    <label for="photo" class="block text-gray-700 font-bold mb-2">Profile Photo</label>
+                    <input id="file" type="file" name="file[]" class="appearance-none border rounded w-full py-2 px-3 text-[black] leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="hidden" name="url" id="url">
+                  </div>
+                  <button type="button" onClick="uploadimage(event)">Update Profile</button><br><br><br>
+                  <input type="submit" value="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 </div>
-                <div class="mb-4">
-                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="submit">
-                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+        <script>
+          var config = {
+            'apiKey': "AIzaSyBl-5DPtTBMXwC6eOxDP1K19wLSANBhkeg",
+            'authDomain': "smartpark-380e6.firebaseapp.com",
+            'projectId': "smartpark-380e6",
+            'storageBucket': "smartpark-380e6.appspot.com",
+            'messagingSenderId': "986213369518",
+            'appId': "1:986213369518:web:6170bf0b8ad076e482cf3f",
+            'measurementId': "G-LY5T3CR6CN",
+            'databaseURL': "https://smartpark-380e6-default-rtdb.firebaseio.com/",
+            'serviceAccount': "./smartpark/firebase-admin-sdk.json"
+          };
+        
+          firebase.initializeApp(config);
+        
+          function uploadimage(event){
+            event.preventDefault();
+            var storageRef = firebase.storage().ref();
+            var file = document.getElementById("file").files[0];
+            var thisRef = storageRef.child(file.name).put(file);
+            thisRef.on('state_changed', function(snapshot){
+              console.log('file upload in progress');
+            },
+            function(error){
+              console.log('error', error);
+            },
+            function(){
+              console.log('file upload complete');
+              //var downloadURL = thisRef.snapshot.downloadURL
+              thisRef.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                //console.log("got url" + downloadURL)
+                console.log("got url: " + downloadURL);
+                document.getElementById('url').value = downloadURL;
+                alert("file uploaded successfully");
+              });
+            });
+          }
+        </script>
+</body>
+</html>
+
+        

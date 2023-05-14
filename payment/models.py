@@ -8,5 +8,5 @@ class Subscriptions(models.Model):
     amount = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     payment_id = models.CharField(max_length=100)
+    uid = models.CharField(max_length=100, blank=True, null=True)
     paid = models.BooleanField(default=False)
-

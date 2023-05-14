@@ -11,113 +11,255 @@
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>  
     <!-- navbar starts here -->
     {% include "components/navbar.html" %}
     <!-- navbar ends here --> 
 
-    <body style="background-image: url('{%static 'img/home/7971.jpg' %}');">
-    <br>
-    <br>
+    <body style="background-image: url('{%static 'img/home/7971.jpg' %}')";>
+      <br>
+      <br>
+      <!-- Heading -->
+      <div class="swap w-full">
+        <br>
+        <h1 class="font-bold text-5xl align-middle px-40 text-[white]">Welcome to Smart Park!
+          A new way of Parking
+        </h1>
+      </div>
+      <br>
+      <br>
+      <!-- End of heading -->
     
-    <br>
-    <br>
-    
-    <div class="swap  w-full">
-    <br>
-    <h1 class="font-bold text-5xl align-middle px-40 text-[white]">Welcome to Smart Park!
-        A new way of Parking
-    </h1>
-    </div>
-    <br>
-    <br>
-    <!-- <body class="bg-[blue]"> -->
-    
-      <!-- New hover -->
-    
+      <!-- Card to get Vacant Spots -->
       <div class="flex flex-wrap justify-center">
         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4 bg-gradient-to-l">
-          <div class="bg-info-content  rounded-lg overflow-hidden shadow-100 hover:shadow-xl transition-shadow duration-30">
+          <div class="bg-info-content rounded-lg overflow-hidden shadow-100 hover:shadow-xl transition-shadow duration-30">
             <img class="w-full h-48 object-cover" src="{%static 'img/home/spots.png' %}" alt="Card 1">
             <div class="p-4">
               <h2 class="text-[white] font-bold text-xl mb-2">ST ALOYSIUS AUTONOMOUS COLLEGE CAR PARKING</h2>
               <p class="text-[white] text-base">
-                Get real time updates now by clicking on check. We will check the vacant spaces that are available in a particular location and we will retuurm back to you.
+                Get real-time updates now by clicking on check. We will check the vacant spaces that are available in a particular location and we will return back to you.
               </p>
               <br>
-              <button onClick="location.href='{% url 'park' %}'" class="bg-[black] hover:bg-[red] text-white font-bold py-2 px-4 rounded-md justify-between px-20 py-2 ml-5.5">
+              <button href="http://192.168.147.101" onClick="location.href='{% url 'park' %}'" class="bg-[black] hover:bg-[red] text-white font-bold py-2 px-4 rounded-md justify-between px-20 py-2 ml-5.5">
                 Check now!
               </button>
             </div>
           </div>
         </div>
-        
-        </div>
       </div>
-      
+      <!-- End of card -->
+    
+    
+    
+    
+    
+    <!-- About us section -->
     <br>
     
     <div class="card card-side bg-[black] shadow-xl">
-        <figure><img src="{%static 'img/home/Aloysius.png' %}" alt="img"/></figure>
-        <div class="card-body">
-          <h2 class="card-title">Now in 20+ spots in Mangaluru</h2>
-          <p>Smart Park is developed by the students of ST Aloysius AUTONOMOUS College Mangalore Karnataka. Considering and looking into a lot of parking problems in and around India, we tend to solve most of your problems .</p>
-          <div class="card-actions justify-end">
-            
-            <button href="index.html" class="btn btn-">Watch</button>
+      <figure><img src="{%static 'img/home/Aloysius.png' %}" alt="img" /></figure>
+      <div class="card-body">
+        <h2 class="card-title">Now in 20+ spots in Mangaluru</h2>
+        <p>
+          Smart Park is developed by the students of ST Aloysius AUTONOMOUS College Mangalore Karnataka. Considering and looking into a lot of parking problems in and around India, we tend to solve most of your problems.<br>
+          <br class="Para text-10xl">
+          - No need to search here and there for vacant parking spots.<br>
+          - Save fuel and lead a better economical life!<br>
+          - Save time and reduce mental stress.
+        </p>
+        <div class="card-actions justify-end">
+          <a onClick="location.href='{% url 'aboutus' %}'" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[red] rounded-lg hover:bg-[black] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[red] dark:hover:bg-[black] dark:focus:ring-blue-800">
+            About us
+            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- End of about us -->
+    
+    
+    <br>
+    <br>
+    
+    <!-- Start of Discover section -->
+    
+    <h5 class="Dino text-4xl font-extrabold p-3">Discover</h5>
+    <br>
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -m-4">
+          <div class="p-4 md:w-1/3">
+            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{%static 'img/home/vinfo.png' %}" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-[white] mb-1">Vehicle Details</h2>
+                <h1 class="title-font text-lg font-medium text-[Red] mb-3">Find your vehicle Details</h1>
+                <p class="leading-relaxed mb-3 text-[white]">Get all the details such as owner name,address,Vehicle age, model etc..</p>
+                <div class="flex items-center flex-wrap ">
+                  <a onClick="location.href='{% url 'rcc' %}'" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-[black] dark:focus:ring-blue-800">
+                    Find Now
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
+               
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/3">
+            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{%static 'img/home/mech.png' %}" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-[white] mb-1">Vehicle Details</h2>
+                <h1 class="title-font text-lg font-medium text-[red] mb-3">Emergency? Mechanics near you!</h1>
+                <p class="leading-relaxed mb-3 text-[white]">Vehicle broken down? Get latest Garage numbers from this one app</p>
+                <div class="flex items-center flex-wrap">
+                  <a onClick="location.href='{% url 'mechanic' %}'" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-[black] dark:focus:ring-blue-800">
+                    Find Now
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="p-4 md:w-1/3">
+            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{%static 'img/home/insur.png' %}" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-[white] mb-1">Insuarance</h2>
+                <h1 class="title-font text-lg font-medium text-[red] mb-3">One click vehicle insuarance</h1>
+                <p class="leading-relaxed mb-3 text-[white]">Save fine upto 10000/- rs by buying your insuarance now !</p>
+                <div class="flex items-center flex-wrap ">
+                  <br>
+                  <br>
+                  <br>
+    
+                  <a href="https://www.acko.com/?utm_adgroup=Acko_Insurance&utm_network=g&utm_matchtype=e&utm_device=c&utm_placement=&utm_Adposition=&utm_location=9147861&utm_Sitelink=&utm_Audience=kwd-406468707960&utm_Promotion=&utm_Price=" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-[black] dark:focus:ring-blue-800">
+                    Get Now
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      
+      </div>
+    </section>
+    
+    
+    <!-- End of discover section -->
+    
+    <!-- Discover more button -->
+    
+    <div class="flex flex-col items-center justify-center">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <a onClick="location.href='{% url 'discover' %}'">Discover More</a>
+      </button>
+    </div>
+    <br>
+    <br>
+    <br>
+    
+    <!-- End of discover more -->
+    
+    
+    
+    <!-- Feedback Section -->
+    
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
+          <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-white">Not Parked properly? Write your feedbacks and Complaints here !!</h1>
+          <button onClick="location.href='{% url 'feedback' %}'" class="flex-shrink-0 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-black rounded text-lg mt-10 sm:mt-0">Write now!</button>
         </div>
       </div>
+    </section>
     
+    <!-- End of Feedback section -->
+    
+    
+    <!-- Tips to park -->
+    <br>
     <br>
     
-    <h1 class="font-bold text-5xl align-center px-40 text-[white]">Discover</h1>
-    <br>
+    <h5 class="Dino text-4xl font-extrabold p-3 text-[white]">Tips to Park your Vehicle</h5>
     
-    <div class="flex flex-col md:flex-row md:space-x-4 gap-2">
-      <div class="bg-gray-800 shadow-md rounded-lg p-6 md:w-1/3 gap-2">
-        <h2 class="text-xl font-bold mb-2">Get regular Fuel price Updates.</h2>
-        <p class="text-gray-600"> </p>
-        <br>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Read more
-          <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-      </a>
-      <br>
-        <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">Button</button> -->
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <div class="container px-5 py-24 mx-auto flex flex-wrap">
+        <div class="flex flex-wrap w-full">
+          <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+            <div class="flex relative pb-12">
+              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
+              </div>
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-600 inline-flex items-center justify-center text-white relative z-10">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+    
+                </svg>
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-white mb-1 tracking-wider">Use your signals:</h2>
+                <p class="leading-relaxed"> Before you pull into a parking spot, use your turn signal to indicate your intention to other drivers.</p>
+              </div>
+            </div>
+            <div class="flex relative pb-12">
+              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
+              </div>
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-600 inline-flex items-center justify-center text-white relative z-10">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                
+                </svg>
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-white mb-1 tracking-wider">Check your surroundings:</h2>
+                <p class="leading-relaxed">Look around to make sure that there are no pedestrians, cyclists, or obstacles in your way.</p>
+              </div>
+            </div>
+            <div class="flex relative pb-12">
+              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
+              </div>
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-600 inline-flex items-center justify-center text-white relative z-10">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  
+                </svg>
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-white mb-1 tracking-wider">Position your vehicle: </h2>
+                <p class="leading-relaxed">Position your vehicle in the center of the parking space, ensuring that there is enough space between your vehicle and the adjacent vehicles.</p>
+              </div>
+            </div>
+            <div class="flex relative pb-12">
+              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                <div class="h-full w-1 bg-gray-800 pointer-events-none"></div>
+              </div>
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-600 inline-flex items-center justify-center text-white relative z-10">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                 
+                </svg>
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-white mb-1 tracking-wider">Check your distance: </h2>
+                <p class="leading-relaxed">VMake sure that you have enough distance between your vehicle and the vehicles in front and behind you. This will prevent you from accidentally hitting them when you pull out of the parking space.</p>
+              </div>
+            </div>
+            <div class="flex relative">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-600 inline-flex items-center justify-center text-white relative z-10">
+               
+              </div>
+              <div class="flex-grow pl-4">
+                <h2 class="font-medium title-font text-sm text-white mb-1 tracking-wider">Set the parking brake:</h2>
+                <p class="leading-relaxed">Engage your parking brake to ensure that your vehicle does not move while parked.</p>
+              </div>
+            </div>
+          </div>
+          <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="{%static 'img/home/tips.png' %}" alt="step">
+        </div>
       </div>
-      <div class="bg-gray-800 shadow-md rounded-lg p-6 md:w-1/3 gap-2">
-        <h2 class="text-xl font-bold mb-2 gap-2">Insurance Expired?</h2>
-        <p class="text-gray-600">Get Your vehicke inusred. <span>Upto 50% Discount</span></p>
-       <br>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Read more
-          <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-      </a>
-      <br>
-        <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">Button</button> -->
-      </div>
-      <div class="bg-gray-800 shadow-md rounded-lg p-6 md:w-1/3 gap-2">
-        <h2 class="text-xl font-bold mb-2 gap-2">Check Challan</h2>
-        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend dolor id risus luctus, id tristique orci vulputate. Fusce euismod turpis et dui finibus, nec dictum nulla dignissim. </p>
-        <br>
-    
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Read more
-          <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-      </a>
-     
-        <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">Button</button> -->
-      </div>
-    </div>
-    
-    </div>
-    <br>
-    <br>
-    
-    
+    </section>
+    <br>  
     {% include "components/chatbot.html" %}
 
 

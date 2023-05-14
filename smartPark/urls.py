@@ -24,7 +24,7 @@ urlpatterns = [
     # path to home page
     path('home/', views.home, name="home"),
     # path to userdetails page
-    path('userdetails/', views.userdetails),
+    path('userdetails/', views.userdetails, name="userdetails"),
     # path to postuserdetails
     path('postuserdetails/', views.postuserdetails),
     # path to profile page
@@ -53,4 +53,18 @@ urlpatterns = [
     path('postforgotpass/', views.postforgotpass, name="postforgotpass"),
     # path to settings page
     path('settings/', views.settings, name="settings"),
+    # path to postprofilepic
+    path('postprofilepic/', views.postprofilepic, name="postprofilepic"),
+    # path to about us page
+    path('aboutus/', views.aboutus, name="aboutus"),
+    # path to mechanics page
+    path('mechanic/', views.mechanic, name="mechanic"),
+    # path to rcc page
+    path('rcc/', views.rcc, name="rcc"),
+    # path to discover page
+    path('discover/', views.discover, name="discover"),
+    # path to tips page
+    path('tips/', views.tips, name="tips"),
+    # path to fuel page
+    path('fuel/', views.fuel, name="fuel"),
 ]

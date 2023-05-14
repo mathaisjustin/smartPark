@@ -1,6 +1,6 @@
 <!-- navbar Starts here -->
 {%load static%}
-<div class="navbar bg-base-100">
+<div class="sticky top-0 z-50 navbar bg-base-100">
     <div class="navbar-start">
       <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost btn-circle">
@@ -24,20 +24,18 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
             </svg>
-            {% comment %} <span class="badge badge-xs badge-primary indicator-item"></span> {% endcomment %}
         </div>
     </button>
     <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
-            <img src="{%static 'img/signin/7971.jpg' %}" />
+            <img id="my-image" src="{% static 'img/home/7971.jpg' %}" />
           </div>
         </label>
         <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
           <li>
             <a class="justify-between">
               <button type="button"  name="profile" onClick="location.href='{% url 'profile' %}'">Profile</button>
-              {% comment %} <span class="badge">New</span> {% endcomment %}
             </a>
           </li>
           <li>
@@ -46,15 +44,47 @@
           </a></li> 
         </ul>
       </div>
-      {% comment %} <button class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-      </button>
-       <button class="btn btn-ghost btn-circle">
-        <div class="indicator">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-          {% comment %} <span class="badge badge-xs badge-primary indicator-item"></span>
-        </div>
-      </button>  {% endcomment %}
     </div>
   </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBl-5DPtTBMXwC6eOxDP1K19wLSANBhkeg",
+      authDomain: "smartpark-380e6.firebaseapp.com",
+      projectId: "smartpark-380e6",
+      storageBucket: "smartpark-380e6.appspot.com",
+      messagingSenderId: "986213369518",
+      appId: "1:986213369518:web:6170bf0b8ad076e482cf3f",
+      measurementId: "G-LY5T3CR6CN",
+      databaseURL: "https://smartpark-380e6-default-rtdb.firebaseio.com/",
+      serviceAccount: "./smartpark/firebase-admin-sdk.json"
+    };
+    
+    firebase.initializeApp(firebaseConfig);
+  
+    const authe = firebase.auth();
+    const database = firebase.database();
+    
+    const idtoken = req.session.uid;
+    const a = authe.currentUser.uid;
+  
+    const profileRef = database.ref(`users/${a}/profile`);
+    profileRef.once('value')
+      .then((snapshot) => {
+        const profile = snapshot.val();
+        const latestTimestamp = Math.max(...Object.keys(profile));
+        const details = profile[latestTimestamp];
+        const url = details.url || '';
+        console.log(url);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  </script>
+  
+
+  
 <!-- navbar ends here -->

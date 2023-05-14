@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from firebase_admin import auth
 
 
 def home(request):
@@ -46,11 +47,13 @@ def success(request):
         # print(order_id)
         user = Subscriptions.objects.filter(payment_id=order_id).first()
         user.paid = True
+        session_id = request.session.get('uid')
+        if session_id:
+            decoded_token = auth.verify_id_token(session_id)
+            uid = decoded_token['uid']
+            user.uid = uid
+            user.save()
+        else:
+            print("Session ID not found")
         user.save()
-        # return redirect('payment/success/')
-        # if (user.paid == True):
-        #     return redirect('/payments/success/')
-        # else:
-        #     pass
-        # return render(request, 'failure.html')
     return render(request, 'userdetails.html')
