@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover</title>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/css/main.ad49aa9b.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body style="background-image: url('{%static 'img/discover/7971.jpg' %}')";>
+<!-- navbar starts here -->
+{% include "components/navbar.html" %}
+<!-- navbar ends here --> 
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 md:w-1/3">
+              <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{%static 'img/discover/dfuel.png' %}" alt="blog">
+                <div class="p-6">
+                  <h2 class="tracking-widest text-xs title-font font-medium text-[white] mb-1">Fuel</h2>
+                  <h1 class="title-font text-lg font-medium text-[Red] mb-3">Get Fuel Price Updates</h1>
+                  <p class="leading-relaxed mb-3 text-[white]">Get all the petrol diesel fuel prices.</p>
+                  <div class="flex items-center flex-wrap ">
+                    <a href="{% url 'fuel' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-[black] dark:focus:ring-blue-800">
+                      Read more
+                      <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </a>
+                 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{%static 'img/discover/rent.png' %}" alt="blog">
+                  <div class="p-6">
+                    <h2 class="tracking-widest text-xs title-font font-medium text-[white] mb-1">Rent a Vehicle</h2>
+                    <h1 class="title-font text-lg font-medium text-[Red] mb-3">Get a vehicle for rent at a cheaper price  </h1>
+                    <p class="leading-relaxed mb-3 text-[white]">Rent vehicle in Mangalore and save a lot!</p>
+                    <div class="flex items-center flex-wrap ">
+                      <a href="{% url 'rentals' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-[black] dark:focus:ring-blue-800">
+                        Read more
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+            <div class="p-4 md:w-1/3">
+              <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{%static 'img/discover/buycar.png' %}" alt="blog">
+                <div class="p-6">
+                  <h2 class="tracking-widest text-xs title-font font-medium text-[white] mb-1">Tips</h2>
+                  <h1 class="title-font text-lg font-medium text-[red] mb-3">Tips that you need to know before Buying <br>a new car!</h1>
+                  <p class="leading-relaxed mb-3 text-[white]">Buy your new car securely now!</p>
+                  <div class="flex items-center flex-wrap ">
+                    <br>
+                    <br>
+                    <br>
+      
+                    <a href="{% url 'tips' %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-[black] dark:focus:ring-blue-800">
+                      Read more
+                      <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </body>
+    </html>

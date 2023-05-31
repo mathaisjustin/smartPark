@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  <title>User Details</title>
+</head>
+<body style="background-image: url('{%static 'img/userdetails/7971.jpg' %}');">
+    {%include "components/navbarSign.html"%}
+  <div class="container mx-auto p-6">
+    <div class="bg-info-content bg-opacity-50 rounded-lg shadow-lg p-6">
+      <h1 class="block uppercase tracking-wide text-[white] font-bold mb-6 text-2xl">User Details</h1>
+      <form action="/postuserdetails/" method="post" class="grid grid-cols-2 gap-6">
+        {% csrf_token %}
+        <div>
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="first-name">First Name</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" type="text" name="fname" id="fname" required>
+        </div>
+        <div>
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="last-name">Last Name</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" type="text" name="lname" id="lname" required>
+        </div>
+        <div>
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="email">Username</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" type="text" name="uname" id="uname" required>
+        </div>
+        <div>
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="phone">Phone Number</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" pattern="[0-9]{10,11}" type="number" name="phone" id="phone">
+        </div>
+        <div class="col-span-2">
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="address">Address</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" type="text" name="address" id="address" required>
+        </div>
+        <div>
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="city">City</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" type="text" name="city" id="city" required>
+        </div>
+        <div class='w-full md:w-full px-3 mb-6 '>
+            <label class='block uppercase tracking-wide text-[white] text-xs font-bold mb-2'>pick your
+                state</label>
+            <div class="flex-shrink w-full inline-block relative">
+                <select name="state"
+                    class="block appearance-none text-[white] w-full bg-gray border  shadow-inner px-4 py-2 pr-8 rounded border-[black] hover:border-[white]"
+                    required>
+                    <option>choose</option>
+                    <option value="Karnataka">Karnataka</option>
+                </select>
+            </div>
+        </div>
+        <div>
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="zip">Zip Code</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" type="text" name="zip" id="zip" required>
+        </div>
+        <div>
+          <label class="block uppercase tracking-wide text-[white] text-xs font-bold mb-2" for="zip">Vehicle Number</label>
+          <input class="border rounded-lg py-2 px-3 w-full border-[black] hover:border-[white]" type="text" name="vno" id="vno" required>
+        </div>
+        
+        <div class="col-span-2">
+          <input class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600" type="submit" value="Save Details"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

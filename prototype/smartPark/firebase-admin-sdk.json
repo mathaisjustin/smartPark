@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smartpark-380e6",
+  "private_key_id": "431a5f0b907d8a98ae6a8f34e9c272098858f3a0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDwEzoEeDX1P9bX\nL+st8udQqRbVk6/geL83gV1SKvkIsgDJnirenlg4+5Wh32fe1jV11WHRaPPMkdYP\npQZhFi9Mb5ydjs6J2loG8ZfzDyTqgLah8IUBnmMOVuufiGfSHNyZsHSC24+dZsza\nuSGYDOF3L9jXOD5R54hS6t+mHzW3LRAt6uaQKmsOb5XJB9MRbvMssO7kAJtjn1fZ\nkVqh8uwWbEXsH0fv1Jev1/QbwdEKiHkcy4evrDcTMnxkFcB+DnZx/yGIcyin3vRt\nItggrgEtHttfKB43wj7PXOY2zM9Tyz4gqMN1g77k5nCWVVZkjA3f5jYasQSMwPMQ\nmvUxzBGVAgMBAAECggEABKcSvKujVapT9kRAktmxku+1khRBJQc7ow5xdqcZJj2w\n5AQzmrBHgtJmK+A7ac2nKC5ak9p5WX5Jpdb4Zy3gL8m8wS7xBynn2b+Zefi4Q4hh\nqB5g4LWnMzI+Po+M5FaldDly7WazUB61NKRaDgTRFjEjfi3h9oHKs6fhB4RBhotV\nUUK6Gxr2losarBJB2OY4Z3NHbmdqXU3l3P4QcyHsQmHi+tikEiDHJ0Vl8DUKCP0u\nuUU2j/TqyCqUP5ppu3qCKfhV39LUf1FZpGIm20nzsSAsGp9mIWLEvbIoR4bMbZLm\noomVAUq2wR/nzp1MiVugLwv/Wo1eNnYX9KlYfQ7k5wKBgQD9sbCii166HreOiycX\niw0la4/eOmGsoG8+Xn2qRqjAIyNhJwyh1BRxGb7Xrg3H2z8uCWhTcUBkyZn9pwFF\n1LELXw08JrkHyOh7nQE9HHbXQfU2My0+GsIVUz7W6XHQ4J0LIq/HfhpwdOddZg+U\nI+m9r3UE6ZIBGme39ZZ5iPu6qwKBgQDyQdjhESMmHxY2sZEXxF4x9Izczg2inAhW\np+XoBx/OPpkZ/rHBi/0qlmPY4pJYy3iEFgppKLzR9+Q86buqRYEgPVAOL39o+qW8\nScX4Ae+njgeOPEPuC0ioSu/33TZmZkE0VbUxAHpJ2rWze/85Ga4oEHqLW/0EfSad\nsnLOazNkvwKBgQDHciG+uDkhs7J1QxrZnH0aVSTG/jj54Stz6g97hY93dmiDIZMB\nytzDSg1KPNEitVBHXigBqcCJPCFvVBNhFeSWXwTlrD+9SgrT28w0giM/+d/Q240P\nDTRWVZrKlL7hCyULsxpkiNQ6Yv3d5LYMres+MCmcUhByA5NVAaNqKvJUfwKBgBtl\nDNRurq3Z6BYpQEISx6AYinFRr8MKp/q8o8f4PkWBWKjS32EGpotRVFsrS+dUov00\nzNqVa7zGrn2g5MLddzuhE1N3VY4WgfVn1kY0Wdh1vC7+a6QYjI/TYY2C62rq90am\nxoWTC0EcxV1VkUfwunv3WRQ3Q8ZlLJ+6lTb4cmhbAoGBAIqTfxnjcRocGlFlsrYN\nCGlIukwGrPeQlxyAyNyF9SGdC6tJnWJn8kIT+YU+yrcR7CAxfRQ9qGz9AvyKr095\n+UJRvAmwN6F8hW7LR4QpYWzrTktoWbLd0KiL2M3wtdD5T/wUrH/cqM/v49X2l9fU\nP1s8q+obnQYmTxoYpBsY69U2\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-4v0qn@smartpark-380e6.iam.gserviceaccount.com",
+  "client_id": "112266527757486714436",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-4v0qn%40smartpark-380e6.iam.gserviceaccount.com"
+}
