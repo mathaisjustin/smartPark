@@ -84,5 +84,5 @@ This project is licensed under the [MIT](https://github.com/mathaisjustin/smartP
 For any inquiries or questions, feel free to contact the project maintainer:
 
 Justin Mathais
-- Email: mathaisjustin@gmail.com
+- Email: [mathaisjustin@gmail.com](mailto:mathaisjustin@gmail.com)
 - LinkedIn: [mathaisjustin](https://www.linkedin.com/in/mathaisjustin/)
